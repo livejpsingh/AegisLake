@@ -1,0 +1,27 @@
+# MiniLake & Risk Engine Configuration
+project:
+  name: "fintech-risk-control"
+  version: "1.0.0"
+  environment: "local"
+
+minilake:
+  base_path: "data"
+  bronze_path: "data/bronze/transactions.parquet"
+  silver_path: "data/silver/transactions_governed.parquet"
+  gold_features_path: "data/gold/user_features.parquet"
+  gold_risk_profiles_path: "data/gold/customer_risk_profiles.parquet"
+
+risk_control:
+  target_column: "is_fraud"
+  score_column: "risk_score"
+  decision_thresholds:
+    auto_approve: 0.20
+    manual_review: 0.65
+    auto_decline: 0.85
+  min_acceptable_ks: 0.40
+  max_acceptable_psi: 0.25
+
+mlflow:
+  experiment_name: "fintech_fraud_risk_control"
+  tracking_uri: "mlruns"
+  model_name: "FintechFraudClassifier"

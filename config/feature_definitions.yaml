@@ -1,0 +1,54 @@
+# Behavioral Feature Definitions Catalog
+features:
+  - name: "txn_cnt_1h"
+    entity: "user_id"
+    dtype: "int64"
+    description: "Transaction count in the past 1 hour (high velocity alert)"
+    window_hours: 1
+
+  - name: "txn_cnt_24h"
+    entity: "user_id"
+    dtype: "int64"
+    description: "Transaction count in the past 24 hours"
+    window_hours: 24
+
+  - name: "txn_cnt_7d"
+    entity: "user_id"
+    dtype: "int64"
+    description: "Transaction count in the past 7 days"
+    window_hours: 168
+
+  - name: "txn_amt_sum_24h"
+    entity: "user_id"
+    dtype: "float64"
+    description: "Total spend in the past 24 hours"
+    window_hours: 24
+
+  - name: "txn_amt_avg_7d"
+    entity: "user_id"
+    dtype: "float64"
+    description: "Average transaction amount over past 7 days"
+    window_hours: 168
+
+  - name: "amt_to_avg_ratio"
+    entity: "user_id"
+    dtype: "float64"
+    description: "Ratio of current transaction amount to 7-day average spend"
+    derived_from: ["amount", "txn_amt_avg_7d"]
+
+  - name: "distinct_devices_7d"
+    entity: "user_id"
+    dtype: "int64"
+    description: "Count of distinct device fingerprints used over past 7 days"
+    window_hours: 168
+
+  - name: "distinct_ips_7d"
+    entity: "user_id"
+    dtype: "int64"
+    description: "Count of distinct IP addresses used over past 7 days"
+    window_hours: 168
+
+  - name: "time_since_last_txn_sec"
+    entity: "user_id"
+    dtype: "float64"
+    description: "Seconds elapsed since the user's previous transaction"

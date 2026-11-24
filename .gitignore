@@ -1,0 +1,117 @@
+# ==============================================================================
+# AegisLake FinTech Risk Control & Lakehouse Engine - .gitignore
+# ==============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+htmlcov/
+
+# Data Lakehouse Storage Layers (Bronze / Silver / Gold Parquet & DB files)
+data/bronze/*
+!data/bronze/.gitkeep
+data/silver/*
+!data/silver/.gitkeep
+data/gold/*
+!data/gold/.gitkeep
+data/**/*.parquet
+data/**/*.feather
+data/**/*.orc
+*.parquet
+*.duckdb
+*.db
+*.sqlite3
+
+# MLflow Tracking & Model Registry Runs
+mlruns/
+mlartifacts/
+.mlflow/
+
+# Reports & Dashboard Outputs (Preserve folder, ignore generated HTML/reports)
+reports/*.html
+reports/*.json
+reports/*.csv
+reports/*.png
+reports/*.pdf
+!reports/.gitkeep
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# IDEs & Editor Configuration
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# Operating System specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs & temporary files
+*.log
+logs/
+tmp/
+temp/
