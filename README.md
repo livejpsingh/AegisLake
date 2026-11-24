@@ -83,11 +83,13 @@ AegisLake/
 ├── docs/
 │   ├── ARCHITECTURE.md                # Medallion Lakehouse & Risk modeling details
 │   ├── CI_CD_GUIDE.md                 # CI/CD trigger rules & deployment details
-│   └── LOCAL_INFRASTRUCTURE.md        # Local Docker services & ports guide
+│   ├── LOCAL_INFRASTRUCTURE.md        # Local Docker services & ports guide
+│   └── POWERBI_GUIDE.md               # Power BI Executive Cockpit & DAX measures guide
 ├── reports/
 │   └── risk_dashboard.html            # Interactive Risk Cockpit & metrics visualizer
 ├── src/
-│   ├── dashboard/                     # HTML/JS report generation engine
+│   ├── dashboard/                     # HTML/JS report & Power BI export engine
+
 │   ├── data_governance/               # PII masking (SHA-256) & synthetic generation
 │   ├── feature_store/                 # Temporal multi-window feature extractors
 │   ├── models/                        # Calibrated classifier, KS/AUC/PSI metrics & MLflow
@@ -130,6 +132,14 @@ start reports/risk_dashboard.html   # Windows
 open reports/risk_dashboard.html    # macOS
 xdg-open reports/risk_dashboard.html # Linux
 ```
+
+### 5. Launch the Executive Power BI Dashboard
+Generate pre-aggregated Power BI tables and import into Power BI Desktop (see [Power BI Guide](docs/POWERBI_GUIDE.md)):
+```bash
+python -m src.dashboard.export_for_powerbi
+```
+Open Power BI Desktop ➔ **Get Data** ➔ point to `data/gold/powerbi_customer_risk_profiles.csv` and `data/gold/powerbi_decile_summary.csv`.
+
 
 ---
 
